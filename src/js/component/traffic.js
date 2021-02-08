@@ -5,27 +5,26 @@ const Traffic = e => {
 	let change = e => {
 		setActive((active += " active"));
 		e.target.className += active;
-		setInterval(() => {
-			//we are thinking what to change here to quit about the active class
-		}, 3000);
 	};
 	const quit = e => {
-		e.target.className = e.target.className - active;
+		let array = e.target.className.split(" ");
+		let newClass = array[0] + " " + array[1];
+		e.target.className = newClass;
 	};
 	return (
 		<div>
 			<div className="holder"></div>
 			<div className="lights">
 				<div
-					// onMouseLeave={quit}
+					onMouseLeave={quit}
 					onClick={change}
 					className={`light red`}></div>
 				<div
-					// onMouseLeave={quit}
+					onMouseLeave={quit}
 					onClick={change}
 					className={`light yellow`}></div>
 				<div
-					// onMouseLeave={quit}
+					onMouseLeave={quit}
 					onClick={change}
 					className={`light green`}></div>
 			</div>
